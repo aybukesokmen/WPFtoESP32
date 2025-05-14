@@ -1,0 +1,15 @@
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\bin\Debug\TurnistleControlGui.exe.config
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\bin\Debug\TurnistleControlGui.exe
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\bin\Debug\TurnistleControlGui.pdb
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui.csproj.AssemblyReference.cache
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\MainWindow.g.cs
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\App.g.cs
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui_MarkupCompile.cache
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui_MarkupCompile.lref
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\MainWindow.baml
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui.g.resources
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui.Properties.Resources.resources
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui.csproj.GenerateResource.cache
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui.csproj.CoreCompileInputs.cache
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui.exe
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\TurnistleControlGui\TurnistleControlGui\obj\Debug\TurnistleControlGui.pdb
