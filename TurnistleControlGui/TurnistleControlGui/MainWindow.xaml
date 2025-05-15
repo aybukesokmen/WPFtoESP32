@@ -5,7 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TurnistleControlGui"
         mc:Ignorable="d"
-        Title="Turnstile Control Panel" Height="600" Width="400">
+        Title="Turnstile Control Panel" Height="600" Width="500">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="40">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
 
     <Grid Background="White">
 
@@ -19,23 +42,31 @@
         <Button x:Name="btnConnect" Content="CONNECT" Width="70" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,50,0,0"/>
 
         <!-- ON/OFF ve EMERGENCY Butonları -->
-        <Button x:Name="btnOnOff" Content="ON/OFF" Width="80" Height="80" Background="LightGreen" Margin="70,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="DarkGreen" BorderThickness="2"/>
-        <Button x:Name="btnEmergency" Content="EMERGENCY" Width="80" Height="80" Background="Red" Margin="250,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="DarkRed" BorderThickness="2" Foreground="White"/>
+        <Button x:Name="btnOnOff" Content="ON/OFF"         Width="80" Height="80"
+        Style="{StaticResource RoundedButtonStyle}" Background="LightGreen" Margin="70,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="DarkGreen" BorderThickness="2"/>
+        <Button x:Name="btnEmergency" Content="EMERGENCY"         Width="80" Height="80"
+        Style="{StaticResource RoundedButtonStyle}" Background="Red" Margin="250,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="DarkRed" BorderThickness="2" Foreground="White"/>
 
         <!-- LANE 1 -->
         <TextBlock Text="LANE 1" FontWeight="Bold" Margin="20,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,210,0,0">
-            <Button x:Name="btnL1Entry" Content="VISITOR ENTRY" Width="120" Height="30" Background="Green" Foreground="White"/>
-            <Button x:Name="btnL1Exit" Content="VISITOR EXIT" Width="120" Height="30" Background="Green" Foreground="White" Margin="0,5,0,0"/>
-            <Button x:Name="btnL1Free" Content="FREE" Width="120" Height="30" Background="Green" Foreground="White" Margin="0,5,0,0"/>
+            <Button x:Name="btnL1Entry" Content="VISITOR ENTRY" Width="90" Height="90"
+        Style="{StaticResource RoundedButtonStyle}"  Background="Gray" Foreground="White"/>
+            <Button x:Name="btnL1Exit" Content="VISITOR EXIT" Width="90" Height="90"
+        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"/>
+            <Button x:Name="btnL1Free" Content="FREE" Width="90" Height="90"
+        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"/>
         </StackPanel>
 
         <!-- LANE 2 -->
         <TextBlock Text="LANE 2" FontWeight="Bold" Margin="260,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="0,210,10,0">
-            <Button x:Name="btnL2Entry" Content="VISITOR ENTRY" Width="120" Height="30" Background="Green" Foreground="White"/>
-            <Button x:Name="btnL2Exit" Content="VISITOR EXIT" Width="120" Height="30" Background="Green" Foreground="White" Margin="0,5,0,0"/>
-            <Button x:Name="btnL2Free" Content="FREE" Width="120" Height="30" Background="Green" Foreground="White" Margin="0,5,0,0"/>
+            <Button x:Name="btnL2Entry" Content="VISITOR ENTRY" Width="90" Height="90"
+        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White"/>
+            <Button x:Name="btnL2Exit" Content="VISITOR EXIT" Width="90" Height="90"
+        Style="{StaticResource RoundedButtonStyle}"  Background="Green" Foreground="White" Margin="0,5,0,0"/>
+            <Button x:Name="btnL2Free" Content="FREE" Width="90" Height="90"
+        Style="{StaticResource RoundedButtonStyle}"  Background="Green" Foreground="White" Margin="0,5,0,0"/>
         </StackPanel>
 
         <!-- DURUM PANELİ -->

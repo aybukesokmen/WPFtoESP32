@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\TurnistleControlGui\\",
+  "WorkspaceRootPath": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\WPFtoESP32\\TurnistleControlGui\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C5AC249-7FA1-4D7A-8E47-AA4C3ED62C30}|TurnistleControlGui\\TurnistleControlGui.csproj|c:\\users\\haydar.gungor\\desktop\\aybuke\\software\\arayuz\\turnistlecontrolgui\\turnistlecontrolgui\\turnistlecontrolgui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{5C5AC249-7FA1-4D7A-8E47-AA4C3ED62C30}|TurnistleControlGui\\TurnistleControlGui.csproj|c:\\users\\haydar.gungor\\desktop\\aybuke\\software\\arayuz\\turnistlecontrolgui\\wpftoesp32\\turnistlecontrolgui\\turnistlecontrolgui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{5C5AC249-7FA1-4D7A-8E47-AA4C3ED62C30}|TurnistleControlGui\\TurnistleControlGui.csproj|solutionrelative:turnistlecontrolgui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C5AC249-7FA1-4D7A-8E47-AA4C3ED62C30}|TurnistleControlGui\\TurnistleControlGui.csproj|c:\\users\\haydar.gungor\\desktop\\aybuke\\software\\arayuz\\turnistlecontrolgui\\turnistlecontrolgui\\turnistlecontrolgui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5C5AC249-7FA1-4D7A-8E47-AA4C3ED62C30}|TurnistleControlGui\\TurnistleControlGui.csproj|C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\WPFtoESP32\\TurnistleControlGui\\turnistlecontrolgui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C5AC249-7FA1-4D7A-8E47-AA4C3ED62C30}|TurnistleControlGui\\TurnistleControlGui.csproj|solutionrelative:turnistlecontrolgui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,9 +28,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\WPFtoESP32\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml",
               "RelativeDocumentMoniker": "TurnistleControlGui\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\WPFtoESP32\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml",
               "RelativeToolTip": "TurnistleControlGui\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-05-14T06:15:53.936Z",
@@ -40,14 +40,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\WPFtoESP32\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "TurnistleControlGui\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\haydar.gungor\\Desktop\\Aybuke\\software\\arayuz\\TurnistleControlGui\\WPFtoESP32\\TurnistleControlGui\\TurnistleControlGui\\MainWindow.xaml.cs",
               "RelativeToolTip": "TurnistleControlGui\\MainWindow.xaml.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T06:15:51.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T06:15:51.876Z"
             }
           ]
         }
