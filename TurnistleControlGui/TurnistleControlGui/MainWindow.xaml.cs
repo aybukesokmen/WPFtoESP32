@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO.Ports;
-using System.Linq;
 using System.Windows;
 
 namespace TurnistleControlGui
@@ -12,86 +11,66 @@ namespace TurnistleControlGui
         public MainWindow()
         {
             InitializeComponent();
-            ListAvailablePorts();
-            RegisterButtonEvents();
-            BtnConnect.Click += BtnConnect_Click;
+            comPortComboBox.ItemsSource = SerialPort.GetPortNames();
         }
 
-        private void ListAvailablePorts()
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            ComboComPorts.ItemsSource = SerialPort.GetPortNames().OrderBy(p => p).ToArray();
-            if (ComboComPorts.Items.Count > 0)
-                ComboComPorts.SelectedIndex = 0;
-        }
-
-        private void BtnConnect_Click(object sender, RoutedEventArgs e)
-        {
-            if (serialPort != null && serialPort.IsOpen)
-            {
-                serialPort.Close();
-                BtnConnect.Content = "Connect";
-                MessageBox.Show("Bağlantı kesildi.", "Bilgi", MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-
-            if (ComboComPorts.SelectedItem == null)
-            {
-                MessageBox.Show("Lütfen bir COM port seçin.", "Uyarı", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
             try
             {
-                serialPort = new SerialPort(ComboComPorts.SelectedItem.ToString(), 9600);
+                string portName = comPortComboBox.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(portName))
+                {
+                    MessageBox.Show("Lütfen bir COM port seçin.");
+                    return;
+                }
+
+                serialPort = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One);
                 serialPort.Open();
-                BtnConnect.Content = "Disconnect";
-                MessageBox.Show("Bağlantı başarılı.", "Bağlandı", MessageBoxButton.OK, MessageBoxImage.Information);
+                Log("Bağlantı kuruldu: " + portName);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bağlantı hatası: " + ex.Message, "Hata", MessageBoxButton.OK, MessageBoxImage.Error);
+                Log("Bağlantı hatası: " + ex.Message);
             }
         }
 
-        private void RegisterButtonEvents()
+        private void SendCommand(string commandKey)
         {
-            BtnOnOff.Click += (s, e) => SendCommand("PWR_TOGGLE");
-            BtnEmergency.Click += (s, e) => SendCommand("EMERGENCY");
-
-            BtnL1Entry.Click += (s, e) => SendCommand("L1_ENTRY");
-            BtnL1Exit.Click += (s, e) => SendCommand("L1_EXIT");
-            BtnL1Free.Click += (s, e) => SendCommand("L1_FREE");
-
-            BtnL2Entry.Click += (s, e) => SendCommand("L2_ENTRY");
-            BtnL2Exit.Click += (s, e) => SendCommand("L2_EXIT");
-            BtnL2Free.Click += (s, e) => SendCommand("L2_FREE");
-        }
-
-        private void SendCommand(string command)
-        {
-            if (serialPort != null && serialPort.IsOpen)
+            try
             {
-                try
+                byte[] fullCommand = ModbusCommandLibrary.GetCommandWithCRC(commandKey);
+
+                if (serialPort != null && serialPort.IsOpen)
                 {
-                    serialPort.WriteLine(command);
+                    serialPort.Write(fullCommand, 0, fullCommand.Length);
+                    Log("Gönderildi [" + commandKey + "]: " + BitConverter.ToString(fullCommand).Replace("-", " "));
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Komut gönderilemedi: " + ex.Message, "İletişim Hatası", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Log("Port açık değil.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Seri port açık değil!", "Bağlantı Sorunu", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Log("Hata: " + ex.Message);
             }
         }
 
-        protected override void OnClosed(EventArgs e)
+        private void Log(string message)
         {
-            if (serialPort != null && serialPort.IsOpen)
-                serialPort.Close();
-
-            base.OnClosed(e);
+            txtStatus.AppendText($"{DateTime.Now:HH:mm:ss} - {message}\n");
+            txtStatus.ScrollToEnd();
         }
+
+        // Buton olayları
+        private void btnMotorEnable_Click(object sender, RoutedEventArgs e) => SendCommand("MotorEnable");
+        private void btnMotorDisable_Click(object sender, RoutedEventArgs e) => SendCommand("MotorDisable");
+        private void btnForwardOpen_Click(object sender, RoutedEventArgs e) => SendCommand("ForwardOpen");
+        private void btnReverseOpen_Click(object sender, RoutedEventArgs e) => SendCommand("ReverseOpen");
+        private void btnStop_Click(object sender, RoutedEventArgs e) => SendCommand("Stop");
+        private void btnCloseDoor_Click(object sender, RoutedEventArgs e) => SendCommand("CloseDoor");
+        private void btnStart_Click(object sender, RoutedEventArgs e) => SendCommand("Start");
+        private void btnReset_Click(object sender, RoutedEventArgs e) => SendCommand("Reset");
     }
 }
