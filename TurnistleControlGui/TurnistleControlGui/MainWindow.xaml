@@ -2,7 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Turnstile Control Panel" Height="600" Width="500">
-
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="LightGray"/>
@@ -27,65 +26,113 @@
     </Window.Resources>
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush/>
-        </Grid.Background>
-        <!-- Başlık Paneli -->
-        <Rectangle Fill="#CCCCCC" Height="40" VerticalAlignment="Top"/>
-        <TextBlock Text="TURNİKE CONTROL PANELİ" FontSize="16" FontWeight="Bold" Foreground="White"
-                   VerticalAlignment="Top" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+        <!-- Satır ve Sütun Tanımları -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <!-- Üst Başlık -->
+            <RowDefinition Height="Auto"/>
+            <!-- COM ve Motor -->
+            <RowDefinition Height="*"/>
+            <!-- Ana Kontrol -->
+            <RowDefinition Height="Auto"/>
+            <!-- Durum Paneli -->
+            <RowDefinition Height="30"/>
+            <!-- Alt Bilgi -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-        <!-- COM Port Seçimi -->
-        <ComboBox x:Name="comPortComboBox" Width="80" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,50,0,0"/>
-        <Button x:Name="btnConnect" Content="CONNECT" Width="70" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,50,0,0"
-                Click="btnConnect_Click"/>
+        <!-- Başlık -->
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="2" Fill="#CCCCCC"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="TURNİKE CONTROL PANELİ" FontSize="16" FontWeight="Bold" Foreground="White"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <!-- MOTOR KONTROL -->
-        <Button x:Name="btnMotorEnable" Content="MOTOR ENABLE" Width="80" Height="80"
-                Style="{StaticResource RoundedButtonStyle}" Background="LightGreen" Margin="70,90,0,0"
-                HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="DarkGreen" BorderThickness="2"
-                Click="btnMotorEnable_Click"/>
-
-        <Button x:Name="btnMotorDisable" Content="MOTOR DISABLE" Width="80" Height="80"
-                Style="{StaticResource RoundedButtonStyle}" Background="Red" Margin="250,90,0,0"
-                HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="DarkRed" BorderThickness="2"
-                Foreground="White" Click="btnMotorDisable_Click"/>
-
-        <!-- LANE 1: Forward, Reverse, Stop -->
-        <TextBlock Text="LANE 1" FontWeight="Bold" Margin="20,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,210,0,0">
-            <Button x:Name="btnForwardOpen" Content="FORWARD OPEN" Width="90" Height="90"
-                    Style="{StaticResource RoundedButtonStyle}" Background="Gray" Foreground="White"
-                    Click="btnForwardOpen_Click"/>
-            <Button x:Name="btnReverseOpen" Content="REVERSE OPEN" Width="90" Height="90"
-                    Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"
-                    Click="btnReverseOpen_Click"/>
-            <Button x:Name="btnStop" Content="STOP" Width="90" Height="90"
-                    Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"
-                    Click="btnStop_Click"/>
+        <!-- COM Port ve Motor Enable/Disable -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+            <ComboBox x:Name="comPortComboBox" Width="100" Height="25" Margin="5"/>
+            <Button x:Name="btnConnect" Content="CONNECT" Width="80" Height="25" Margin="5" Click="btnConnect_Click"/>
+            <Button x:Name="btnMotorEnable" Content="MOTOR ENABLE" Width="100" Height="60"
+            Style="{StaticResource RoundedButtonStyle}" Background="LightGreen"
+            BorderBrush="DarkGreen" Margin="5" Click="btnMotorEnable_Click"/>
+            <Button x:Name="btnMotorDisable" Content="MOTOR DISABLE" Width="100" Height="60"
+            Style="{StaticResource RoundedButtonStyle}" Background="Red" Foreground="White"
+            BorderBrush="DarkRed" Margin="5" Click="btnMotorDisable_Click"/>
         </StackPanel>
 
-        <!-- LANE 2: Close, Start, Reset -->
-        <TextBlock Text="LANE 2" FontWeight="Bold" Margin="260,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="0,210,10,0">
-            <Button x:Name="btnCloseDoor" Content="CLOSE DOOR" Width="90" Height="90"
-                    Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White"
-                    Click="btnCloseDoor_Click"/>
-            <Button x:Name="btnStart" Content="START" Width="90" Height="90"
-                    Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"
-                    Click="btnStart_Click"/>
-            <Button x:Name="btnReset" Content="RESET" Width="90" Height="90"
-                    Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"
-                    Click="btnReset_Click"/>
-        </StackPanel>
 
-        <!-- DURUM PANELİ -->
-        <GroupBox Header="DURUM PANELİ" Width="250" Height="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,50">
+        <!-- Ana Kontrol Alanı -->
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="10*"/>
+
+                </Grid.RowDefinitions>
+
+                <!-- LANE 1 -->
+                <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
+
+                    <TextBlock Text="LANE 1" FontWeight="Bold" />
+                </StackPanel>
+                <!-- LANE 2 -->
+                <StackPanel  HorizontalAlignment="Center" Grid.Row="2">
+
+                    <Button x:Name="btnForwardOpen" Content="FORWARD OPEN" 
+                        Style="{StaticResource RoundedButtonStyle}" Background="Gray" Foreground="White"
+                        Click="btnForwardOpen_Click"/>
+                </StackPanel>
+                <!-- LANE 3 -->
+                <StackPanel  HorizontalAlignment="Center" Grid.Row="4">
+
+                    <Button x:Name="btnReverseOpen" Content="REVERSE OPEN" Width="90" Height="90"
+                        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" 
+                        Click="btnReverseOpen_Click"/>
+
+                </StackPanel>
+                <!-- LANE 3 -->
+                <StackPanel  HorizontalAlignment="Center" Grid.Row="6">
+
+                    <Button x:Name="btnStop" Content="STOP" Width="90" Height="90"
+                        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" 
+                        Click="btnStop_Click"/>
+                </StackPanel>
+            </Grid>
+
+
+            <!-- LANE 2 -->
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                <TextBlock Text="LANE 2" FontWeight="Bold" Margin="0,10,0,5"/>
+                <Button x:Name="btnCloseDoor" Content="CLOSE DOOR" Width="90" Height="90"
+                        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White"
+                        Click="btnCloseDoor_Click"/>
+                <Button x:Name="btnStart" Content="START" Width="90" Height="90"
+                        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"
+                        Click="btnStart_Click"/>
+                <Button x:Name="btnReset" Content="RESET" Width="90" Height="90"
+                        Style="{StaticResource RoundedButtonStyle}" Background="Green" Foreground="White" Margin="0,5,0,0"
+                        Click="btnReset_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Durum Paneli -->
+        <GroupBox Grid.Row="3" Grid.ColumnSpan="2" Header="DURUM PANELİ" Margin="20" HorizontalAlignment="Center" Width="300">
             <TextBox x:Name="txtStatus" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
         </GroupBox>
 
         <!-- Alt Bilgi -->
-        <Rectangle Fill="Green" Height="30" VerticalAlignment="Bottom"/>
-        <TextBlock Text="V1.0 Tüm hakları saklıdır" Foreground="White" Margin="10,0,0,5" VerticalAlignment="Bottom"/>
+        <Rectangle Grid.Row="4" Grid.ColumnSpan="2" Fill="Green"/>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="V1.0 Tüm hakları saklıdır" Foreground="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
     </Grid>
 </Window>

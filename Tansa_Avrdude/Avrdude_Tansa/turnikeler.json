@@ -1,0 +1,26 @@
+{
+  "turnikeler": [
+    {
+      "model": "TUR-601",
+      "chip": "m32",
+      "hex": "firmwares/tur601.hex",
+      "elf": "firmwares/tur601.elf",
+      "fuses": {
+        "low": "0xFF",
+        "high": "0xD9",
+        "ext": "0xFF"
+      }
+    },
+    {
+      "model": "TUR-801",
+      "chip": "m328p",
+      "hex": "firmwares/tur801.hex",
+      "elf": "firmwares/tur801.elf",
+      "fuses": {
+        "low": "0xE2",
+        "high": "0xD9",
+        "ext": "0xFF"
+      }
+    }
+  ]
+}

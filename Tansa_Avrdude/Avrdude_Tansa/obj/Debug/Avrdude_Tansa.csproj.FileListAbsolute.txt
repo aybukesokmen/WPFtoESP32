@@ -1,0 +1,5 @@
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\Tansa_Avrdude\Avrdude_Tansa\obj\Debug\Avrdude_Tansa.csproj.AssemblyReference.cache
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\Tansa_Avrdude\Avrdude_Tansa\obj\Debug\MainWindow.g.cs
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\Tansa_Avrdude\Avrdude_Tansa\obj\Debug\App.g.cs
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\Tansa_Avrdude\Avrdude_Tansa\obj\Debug\Avrdude_Tansa_MarkupCompile.cache
+C:\Users\haydar.gungor\Desktop\Aybuke\software\arayuz\TurnistleControlGui\Tansa_Avrdude\Avrdude_Tansa\obj\Debug\Avrdude_Tansa_MarkupCompile.lref
